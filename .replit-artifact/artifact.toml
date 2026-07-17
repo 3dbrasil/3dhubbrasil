@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "3DHubBrasil"
+version = "1.0.0"
+id = "artifacts/3dhub-brasil"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21751
+
+[services.development]
+run = "pnpm --filter @workspace/3dhub-brasil run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/3dhub-brasil", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/3dhub-brasil/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21751"
+BASE_PATH = "/"
