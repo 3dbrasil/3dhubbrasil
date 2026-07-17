@@ -43,7 +43,7 @@ const ToolCard = ({ item, editMode = false, onEdit, onDelete, isFavorited = fals
       )}
 
       <div className="relative w-full h-36 overflow-hidden bg-[#0a1525] rounded-t-xl">
-        <img src={`${import.meta.env.BASE_URL}toolimages/${item.name.replace(/[^\w\-]/g, '_')}.jpg`} alt={item.name} onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} className="w-full h-full object-cover object-center" />
+        <img src={`${import.meta.env.BASE_URL}toolimages/${item.name.replace(/[^\w\-]/g, '_')}.jpg`} alt={item.name} loading="lazy" decoding="async" onError={e => { (e.target as HTMLImageElement).style.display = 'none' }} className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F1C2E] via-transparent to-transparent" />
         {item.type && !item.isLinkList && (
           <span className={`absolute top-2 right-2 text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider

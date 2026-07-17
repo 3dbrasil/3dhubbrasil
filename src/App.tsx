@@ -14,6 +14,9 @@ import HeroSection from './components/HeroSection';
 import ToolsNav from './components/ToolsNav';
 import VendedorBar from './components/VendedorBar';
 import CalculatorTool from './components/CalculatorTool';
+import Manutencao from './pages/Manutencao';
+import Calibracao from './pages/Calibracao';
+import Marketing from './pages/Marketing';
 import Filamentos from './pages/Filamentos';
 import FavoritesSection from './components/FavoritesSection';
 import CategorySection from './components/CategorySection';
@@ -77,9 +80,8 @@ function App() {
       <ScrollProgressBar />
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} theme={theme} toggleTheme={toggleTheme} />
       <FloatingNav cats={cats} onReorder={setCats} />
-      <ApoioBar />
 
-      <div className="h-[10rem]" />
+      <div className="h-[6.5rem]" />
 
       {!isSearching && <NewsTicker />}
       
@@ -129,9 +131,14 @@ function App() {
             <VendedorBar />
 
             {activeTool === 'calculadora' && <CalculatorTool />}
+            {activeTool === 'manutencao' && <Manutencao />}
+            {activeTool === 'calibracao' && <Calibracao />}
+            {activeTool === 'marketing' && <Marketing />}
             {activeTool === 'filamentos' && <Filamentos />}
 
             <CotacaoBar />
+
+            <ApoioBar />
 
             {favoritedItems.length > 0 && (
               <FavoritesSection

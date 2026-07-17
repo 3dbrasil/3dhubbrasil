@@ -92,17 +92,15 @@ export const defaultCategories = [
     icon: "fa-globe",
     items: [
       {name:"3D Kitbash", link:"https://3dkitbash.com", desc:"Modelos premium 3D-printable de brinquedos e peças.", type:"FREEMIUM"},
-      {name:"3D Via", link:"https://www.3dvia.com", desc:"Plataforma de compartilhamento de modelos 3D.", type:"FREE"},
       {name:"Astroprint", link:"https://www.astroprint.com", desc:"Cloud printing e biblioteca de modelos.", type:"FREEMIUM"},
       {name:"Free3D", link:"https://free3d.com", desc:"Modelos 3D gratuitos e premium para download.", type:"FREEMIUM"},
-      {name:"MakerRepo", link:"https://makerrepo.com", desc:"Plataforma git-based para compartilhar modelos CAD paramétricos.", type:"FREE"},
       {name:"Pinshape", link:"https://pinshape.com", desc:"Encontre, compartilhe e venda arquivos de impressão 3D.", type:"FREEMIUM"},
       {name:"PrintPal", link:"https://printpal.io", desc:"Marketplace + modelos + IA + manufatura sob demanda.", type:"FREEMIUM"},
-      {name:"Redpah", link:"https://www.redpah.com", desc:"Repositório de modelos 3D gratuitos.", type:"FREE"},
+      {name:"Redpah", link:"https://www.redpah.com", desc:"Repositório de modelos 3D gratuitos.", type:"FREEMIUM"},
       {name:"Sculpteo", link:"https://www.sculpteo.com", desc:"Impressão 3D sob demanda e biblioteca de modelos.", type:"FREEMIUM"},
       {name:"Shapeways", link:"https://www.shapeways.com", desc:"Marketplace e manufatura 3D profissional.", type:"FREEMIUM"},
       {name:"TurboSquid", link:"https://www.turbosquid.com", desc:"Maior marketplace de modelos 3D profissionais.", type:"FREEMIUM"},
-      {name:"YouMagine", link:"https://youmagine.com", desc:"Comunidade para criadores RC e makers.", type:"FREE"}
+      {name:"YouMagine", link:"https://youmagine.com", desc:"Comunidade para criadores RC e makers.", type:"FREEMIUM"}
     ]
   },
   {
@@ -126,21 +124,6 @@ export const defaultCategories = [
       {name:"3D PrintForce", link:"https://3dprintforce.com/3d-printing-calculator", desc:"Calculadora com lucro, taxas e falhas.", type:"FREE"},
       {name:"GCodex", link:"https://gcodex.tech", desc:"Visualizador e analisador de G-Code online. CNC e FDM.", type:"FREE"},
       {name:"Polyvia3D", link:"https://polyvia3d.com", desc:"82 ferramentas: converter, visualizar, reparar 3D. 100% grátis.", type:"FREE"}
-    ]
-  },
-  {
-    id: "github",
-    name: "🐙 GitHub & Projetos",
-    icon: "fa-code",
-    items: [
-      {name:"Awesome 3D Printing", link:"https://github.com/ad-si/awesome-3d-printing", desc:"Catálogo completo de recursos 3D open-source.", type:"FREE"},
-      {name:"Awesome OpenSCAD", link:"https://github.com/opensecad/awesome-opensecad", desc:"Catálogo de recursos OpenSCAD.", type:"FREE"},
-      {name:"3D Printing Cheat Sheet", link:"https://github.com/3dprintingchek/3d-printing-cheat-sheet", desc:"Guia rápido de configurações.", type:"FREE"},
-      {name:"Voron Design", link:"https://github.com/VoronDesign", desc:"Projetos de impressoras coreXY open-source.", type:"FREE"},
-      {name:"EVA3D", link:"https://github.com/EVA-3D", desc:"Toolhead universal open-source.", type:"FREE"},
-      {name:"3DMRP", link:"https://github.com/MKloberg/3drmp", desc:"ERP: pedidos, fila de impressão, estoque.", type:"FREE"},
-      {name:"Manyfold", link:"https://github.com/manyfold3d/manyfold", desc:"Gerenciador de biblioteca 3D self-hosted.", type:"FREE"},
-      {name:"printBed", link:"https://github.com/prosthetichead/printBed", desc:"Gestão de assets 3D: classifique e organize.", type:"FREE"}
     ]
   },
   {

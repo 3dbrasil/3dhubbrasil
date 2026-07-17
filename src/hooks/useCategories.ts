@@ -27,7 +27,7 @@ export const useCategories = () => {
   useEffect(() => {
     if (!USE_API && cats.length > 0) {
       localStorage.setItem('3dhub-categories', JSON.stringify(cats));
-      localStorage.setItem('3dhub-version', '3.0');
+      localStorage.setItem('3dhub-version', '4.0');
     }
   }, [cats, USE_API]);
 
@@ -46,7 +46,7 @@ export const useCategories = () => {
   const loadFromStorage = () => {
     const saved = localStorage.getItem('3dhub-categories');
     const version = localStorage.getItem('3dhub-version');
-    const currentVersion = '3.0';
+    const currentVersion = '4.0';
     if (saved && version === currentVersion) {
       try {
         setCats(JSON.parse(saved));
