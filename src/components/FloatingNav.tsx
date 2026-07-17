@@ -88,6 +88,7 @@ const FloatingNav = ({ cats, onReorder }: FloatingNavProps) => {
             const isActive = cat.id === activeCatId;
             const isDragging = dragIdx === idx;
             const isOver = overIdx === idx && dragIdx !== null && dragIdx !== idx;
+            const catColor = getCategoryColor(cat.id);
             return (
               <div
                 key={cat.id}
@@ -102,13 +103,19 @@ const FloatingNav = ({ cats, onReorder }: FloatingNavProps) => {
                 <button
                   onPointerDown={e => e.stopPropagation()}
                   onClick={() => scrollTo(cat.id)}
-                  className={`block px-3 py-1.5 rounded-xl text-[11px] font-semibold transition-all whitespace-nowrap border ${
-                    isActive
-                      ? 'bg-[#00A8FF] text-white border-[#00A8FF]/40 shadow-[0_0_14px_rgba(0,168,255,0.45)]'
-                      : 'text-white/45 border-transparent hover:text-white hover:bg-white/[0.07] hover:border-white/10'
+                  className={`block px-4 py-2 rounded-xl text-[11px] font-semibold transition-all whitespace-nowrap border-2 relative overflow-hidden ${isActive
+                    ? `bg-gradient-to-r ${catColor} text-white border-transparent shadow-[0_0_20px_${catColor.replace('from-', '').replace('to-', ',')}]`
+                    : 'text-white/40 bg-white/[0.02] border-transparent hover:text-white hover:bg-white/[0.08] hover:border-white/10'
                   }`}
                 >
-                  {displayName}
+                  {isActive && (
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent" />
+                  )}
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {cat.icon && <span className="text-[10px]">{cat.icon}</span>}
+                    {displayName}
+                  </span>
+                  {isActive && <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white" />}
                 </button>
               </div>
             );
@@ -118,5 +125,19 @@ const FloatingNav = ({ cats, onReorder }: FloatingNavProps) => {
     </div>
   );
 };
+
+const categoryColors: Record<string, string> = {
+  'modelagem': 'from-blue-500 to-indigo-500',
+  'ia': 'from-purple-500 to-pink-500',
+  'slicers': 'from-emerald-500 to-teal-500',
+  'stls': 'from-orange-500 to-amber-500',
+  'stls-independentes': 'from-cyan-500 to-blue-500',
+  'utilitarios': 'from-violet-500 to-purple-500',
+  'gestao': 'from-red-500 to-rose-500',
+};
+
+function getCategoryColor(id: string): string {
+  return categoryColors[id] || 'from-[#00A8FF] to-[#0077BE]';
+}
 
 export default FloatingNav;

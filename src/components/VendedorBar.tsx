@@ -13,27 +13,33 @@ const VENDEDORES = [
 const VendedorBar = () => {
   const base = import.meta.env.BASE_URL;
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
-      <div className="flex items-center gap-1.5 flex-wrap justify-center">
-        <span className="text-[10px] font-semibold text-white/40 mr-1 uppercase tracking-wider">Onde Vender</span>
-        {VENDEDORES.map((v, i) => (
-          <a
-            key={i}
-            href={v.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={v.name}
-            className="group flex items-center gap-1.5 px-2 py-1 rounded-full bg-white/5 border border-white/10 hover:border-[#00A8FF]/30 hover:bg-[#00A8FF]/5 transition-all"
-          >
-            <img
-              src={`${base}${v.favicon.replace(/^\//, '')}`}
-              alt={v.name}
-              className="w-4 h-4 rounded-full object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-            />
-            <span className="text-[9px] text-white/60 group-hover:text-[#00A8FF] transition-colors hidden sm:inline">{v.name}</span>
-          </a>
-        ))}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+      <div className="flex items-center gap-3 flex-wrap justify-center">
+        <span className="text-[10px] font-semibold text-white/40 uppercase tracking-wider">Onde Vender</span>
+        <div className="flex items-center gap-2">
+          {VENDEDORES.map((v, i) => (
+            <a
+              key={i}
+              href={v.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={v.name}
+              className="group flex-shrink-0 relative"
+            >
+              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden transition-all hover:border-[#00A8FF]/50 hover:bg-[#00A8FF]/10 hover:scale-110 hover:shadow-[0_0_16px_rgba(0,168,255,0.3)]">
+                <img
+                  src={`${base}${v.favicon.replace(/^\//, '')}`}
+                  alt={v.name}
+                  className="w-7 h-7 object-contain"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              </div>
+              <span className="absolute bottom-[-18px] left-1/2 -translate-x-1/2 text-[9px] text-white/30 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                {v.name}
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
