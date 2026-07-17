@@ -79,6 +79,7 @@ function App() {
     <div className="min-h-screen w-full bg-background text-white selection:bg-[#00A8FF]/30 font-sans">
       <ScrollProgressBar />
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} theme={theme} toggleTheme={toggleTheme} />
+      <ApoioBar />
       <FloatingNav cats={cats} onReorder={setCats} />
 
       <div className="h-[6.5rem]" />
@@ -137,8 +138,6 @@ function App() {
             {activeTool === 'filamentos' && <Filamentos />}
 
             <CotacaoBar />
-
-            <ApoioBar />
 
             {favoritedItems.length > 0 && (
               <FavoritesSection
