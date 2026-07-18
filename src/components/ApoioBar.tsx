@@ -12,7 +12,7 @@ const ApoioBar = () => {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed top-[2rem] left-0 right-0 z-35 flex justify-center px-4 pointer-events-none"
+      className="fixed top-[8.25rem] left-0 right-0 z-35 flex justify-center px-4 pointer-events-none"
     >
       <div className="pointer-events-auto flex items-center gap-3 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500/20 via-orange-500/15 to-amber-500/20 border border-amber-500/25 backdrop-blur-md shadow-[0_4px_24px_rgba(245,158,11,0.15)]">
         <Heart size={14} className="text-amber-400 flex-shrink-0" fill="currentColor" />

@@ -75,7 +75,7 @@ const FloatingNav = ({ cats, onReorder }: FloatingNavProps) => {
   if (!visible) return null;
 
   return (
-    <div className="fixed top-[9.85rem] left-0 right-0 z-30 flex justify-center px-4 pointer-events-none">
+    <div className="fixed top-[28.5rem] left-0 right-0 z-30 flex justify-center px-4 pointer-events-none">
       <div className="pointer-events-auto bg-[#07101F]/95 backdrop-blur-xl border border-white/[0.07] rounded-2xl px-3 py-2 shadow-[0_8px_40px_rgba(0,0,0,0.7)]">
         <div
           ref={scrollRef}
