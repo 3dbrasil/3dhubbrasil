@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Category } from '../types';
+import ApoioBar from './ApoioBar';
 
 interface FloatingNavProps {
   cats: Category[];
@@ -75,50 +76,53 @@ const FloatingNav = ({ cats, onReorder }: FloatingNavProps) => {
   if (!visible) return null;
 
   return (
-    <div className="fixed top-[14rem] left-0 right-0 z-30 flex justify-center px-4 pointer-events-none">
-      <div className="pointer-events-auto bg-[#07101F]/95 backdrop-blur-xl border border-white/[0.07] rounded-2xl px-3 py-2 shadow-[0_8px_40px_rgba(0,0,0,0.7)]">
-        <div
-          ref={scrollRef}
-          className="flex items-center gap-1 overflow-x-auto no-scrollbar"
-          style={{ maxWidth: 'calc(100vw - 3rem)' }}
-        >
-          {cats.map((cat, idx) => {
-            const parts = cat.name.split(' ');
-            const displayName = parts.length > 1 ? parts.slice(1).join(' ') : cat.name;
-            const isActive = cat.id === activeCatId;
-            const isDragging = dragIdx === idx;
-            const isOver = overIdx === idx && dragIdx !== null && dragIdx !== idx;
-            const catColor = getCategoryColor(cat.id);
-            return (
-              <div
-                key={cat.id}
-                draggable
-                onDragStart={(e) => handleDragStart(e, idx)}
-                onDragOver={(e) => handleDragOver(e, idx)}
-                onDrop={(e) => handleDrop(e, idx)}
-                onDragEnd={handleDragEnd}
-                className={`flex-shrink-0 select-none transition-all ${isDragging ? 'opacity-30 scale-95' : ''} ${isOver ? 'scale-110' : ''}`}
-                style={{ cursor: 'grab' }}
-              >
-                <button
-                  onPointerDown={e => e.stopPropagation()}
-                  onClick={() => scrollTo(cat.id)}
-                  className={`block px-4 py-2 rounded-xl text-[11px] font-semibold transition-all whitespace-nowrap border-2 relative overflow-hidden ${isActive
-                    ? `bg-gradient-to-r ${catColor} text-white border-transparent shadow-[0_0_20px_${catColor.replace('from-', '').replace('to-', ',')}]`
-                    : 'text-white/40 bg-white/[0.02] border-transparent hover:text-white hover:bg-white/[0.08] hover:border-white/10'
-                  }`}
+    <div className="fixed top-[2rem] left-0 right-0 z-35 flex justify-center px-4 pointer-events-none">
+      <div className="pointer-events-auto overflow-hidden rounded-2xl border border-white/[0.07] bg-[#07101F]/95 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.7)]">
+        <ApoioBar />
+        <div className="px-3 py-2">
+          <div
+            ref={scrollRef}
+            className="flex items-center gap-1 overflow-x-auto no-scrollbar"
+            style={{ maxWidth: 'calc(100vw - 3rem)' }}
+          >
+            {cats.map((cat, idx) => {
+              const parts = cat.name.split(' ');
+              const displayName = parts.length > 1 ? parts.slice(1).join(' ') : cat.name;
+              const isActive = cat.id === activeCatId;
+              const isDragging = dragIdx === idx;
+              const isOver = overIdx === idx && dragIdx !== null && dragIdx !== idx;
+              const catColor = getCategoryColor(cat.id);
+              return (
+                <div
+                  key={cat.id}
+                  draggable
+                  onDragStart={(e) => handleDragStart(e, idx)}
+                  onDragOver={(e) => handleDragOver(e, idx)}
+                  onDrop={(e) => handleDrop(e, idx)}
+                  onDragEnd={handleDragEnd}
+                  className={`flex-shrink-0 select-none transition-all ${isDragging ? 'opacity-30 scale-95' : ''} ${isOver ? 'scale-110' : ''}`}
+                  style={{ cursor: 'grab' }}
                 >
-                  {isActive && (
-                    <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent" />
-                  )}
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    {displayName}
-                  </span>
-                  {isActive && <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white" />}
-                </button>
-              </div>
-            );
-          })}
+                  <button
+                    onPointerDown={e => e.stopPropagation()}
+                    onClick={() => scrollTo(cat.id)}
+                    className={`block px-4 py-2 rounded-xl text-[11px] font-semibold transition-all whitespace-nowrap border-2 relative overflow-hidden ${isActive
+                      ? `bg-gradient-to-r ${catColor} text-white border-transparent shadow-[0_0_20px_${catColor.replace('from-', '').replace('to-', ',')}]`
+                      : 'text-white/40 bg-white/[0.02] border-transparent hover:text-white hover:bg-white/[0.08] hover:border-white/10'
+                    }`}
+                  >
+                    {isActive && (
+                      <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent" />
+                    )}
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      {displayName}
+                    </span>
+                    {isActive && <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white" />}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

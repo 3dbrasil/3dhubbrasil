@@ -7,7 +7,6 @@ import defaultCategories from './data/categories';
 import ScrollProgressBar from './components/ScrollProgressBar';
 import Header from './components/Header';
 import FloatingNav from './components/FloatingNav';
-import ApoioBar from './components/ApoioBar';
 import NewsTicker from './components/NewsTicker';
 import HeroSection from './components/HeroSection';
 import ToolsNav from './components/ToolsNav';
@@ -79,7 +78,6 @@ function App() {
     <div className="min-h-screen w-full bg-background text-white selection:bg-[#00A8FF]/30 font-sans">
       <ScrollProgressBar />
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} theme={theme} toggleTheme={toggleTheme} />
-      <ApoioBar />
       <FloatingNav cats={cats} onReorder={setCats} />
 
       <div className="h-[6.5rem]" />
