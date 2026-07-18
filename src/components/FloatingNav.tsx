@@ -76,10 +76,15 @@ const FloatingNav = ({ cats, onReorder }: FloatingNavProps) => {
   if (!visible) return null;
 
   return (
-    <div className="fixed top-[2rem] left-0 right-0 z-35 flex justify-center px-4 pointer-events-none">
-      <div className="pointer-events-auto overflow-hidden rounded-2xl border border-white/[0.07] bg-[#07101F]/95 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.7)]">
-        <ApoioBar />
-        <div className="px-3 py-2">
+    <>
+      <div className="fixed top-[1rem] left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
+        <div className="pointer-events-auto max-w-3xl w-full overflow-hidden rounded-t-2xl border border-white/[0.07] border-b-0 bg-[#07101F]/95 backdrop-blur-xl">
+          <ApoioBar />
+        </div>
+      </div>
+      <div className="fixed top-[3rem] left-0 right-0 z-35 flex justify-center px-4 pointer-events-none">
+        <div className="pointer-events-auto overflow-hidden rounded-2xl border border-white/[0.07] bg-[#07101F]/95 backdrop-blur-xl shadow-[0_8px_40px_rgba(0,0,0,0.7)]">
+          <div className="px-3 py-2">
           <div
             ref={scrollRef}
             className="flex items-center gap-1 overflow-x-auto no-scrollbar"
@@ -125,7 +130,7 @@ const FloatingNav = ({ cats, onReorder }: FloatingNavProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

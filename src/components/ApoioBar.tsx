@@ -7,7 +7,7 @@ const ApoioBar = () => {
   if (!show) return null;
 
   return (
-    <div className="flex items-center justify-center gap-3 px-4 py-1.5 bg-gradient-to-r from-amber-500/20 via-orange-500/15 to-amber-500/20 border-b border-amber-500/25">
+    <div className="flex items-center justify-center gap-3 px-4 py-1.5 bg-gradient-to-r from-amber-500/20 via-orange-500/15 to-amber-500/20">
       <Heart size={14} className="text-amber-400 flex-shrink-0" fill="currentColor" />
       <span className="text-xs md:text-sm text-white/80">
         Gostou do projeto? Quer apoiar?{' '}
